@@ -1,0 +1,43 @@
+<html>
+<head>
+
+</head>
+<body>
+	<h1>Adafruit IO MQTT Websocket Demo</h1>	
+	<script src="./js/mqtt-lib.js" type="text/javascript"></script>	
+	<script>
+		var url = 'wss://io.adafruit.com:443/mqtt/';
+		var username = 'yourusername';
+		var aio_key = 'yourkey';
+		var topic = username + '/feeds/photocell';		//spesifik feeds 
+		var counter = 0;
+		
+		var client = mqtt.connect(url, {
+			username: username,
+			password: aio_key
+		});
+
+		client.on('connect', function() {
+			console.log("COnnected!");
+			client.subscribe(topic);
+			client.subscribe(username + '/errors');
+			client.subscribe(username + '/throttle');
+		  /*
+		  setInterval(function() {
+			client.publish(topic, counter.toString());
+			$('pre').append('SENT: ' + counter + '\n');
+			counter++;
+		  }, 2000);
+		  */
+		});
+
+		client.on('error', function(e) {
+			console.log('ERROR: ' + e + '\n');
+		});
+
+		client.on('message', function(topic, payload) {
+			console.log('RECEIVED: ' + payload + '\n');
+		});
+	</script>
+</body>
+</html>

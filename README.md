@@ -13,13 +13,13 @@ https://io.adafruit.com/
 Untuk membuat feed dapat diakses di url:
 
 ```
-https://io.adafruit.com/bangjii/feeds
+https://io.adafruit.com/youruser/feeds
 ```
 
 Keseluruhan config seperti user dan key dapat diliat melalui:
 
 ```
-https://io.adafruit.com/bangjii/dashboards
+https://io.adafruit.com/youruser/dashboards
 ```
 
 ## Authors
